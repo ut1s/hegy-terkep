@@ -2,14 +2,15 @@ document.addEventListener("DOMContentLoaded", function() {
     var svgObj = document.getElementById('kep');
 
     svgObj.addEventListener('load', function() {
-        ujraszinez(svgObj);
+        // Hogy ne stresszeljuk túl az API-t (vagy ne lépjük át véletlenül a kvótát)
+        //ujraszinez(svgObj);
 
         document.getElementById('frissit').addEventListener('click', function() {
             ujraszinez(svgObj);
         });
 
         document.getElementById('ment').addEventListener('click', function () {
-            mentes();
+            mentes(svgObj);
         });
     });
 });
@@ -50,7 +51,8 @@ async function ujraszinez(svgobjt) {
     });
 }
 
-function mentes() {
+function mentes(svgobjt) {
+    var svgDoc = svgobjt.contentDocument;
     var serializer = new XMLSerializer();
     var svgString = serializer.serializeToString(svgDoc.documentElement);
 
