@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     svgObj.addEventListener('load', function() {
         var svgDoc = svgObj.contentDocument;
-        var elementsToColor = [
+        var elms = [
             svgDoc.getElementById('n1'),
             svgDoc.getElementById('n2'),
             svgDoc.getElementById('n3'),
@@ -17,15 +17,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
         document.getElementById('frissit').addEventListener('click', function() {
             fetchColorsFromGoogleSheets()
-                .then(colors => {
-                    colors.forEach((color, index) => {
-                        if (elementsToColor[index]) {
-                            elementsToColor[index].style.fill = color;
+                .then(styles => {
+                    styles.forEach((style, index) => {
+                        if (elms[index]) {
+                            elms[index].style.fill = style.szin;
+                            if (style.pottyos) {
+                                var pottyok = svgDoc.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                                pottyok.setAttribute('x', elms[index].getAttribute('x'));
+                                pottyok.setAttribute('y', elms[index].getAttribute('y'));
+                                pottyok.setAttribute('width', elms[index].getAttribute('width'));
+                                pottyok.setAttribute('height', elms[index].getAttribute('height'));
+                                pottyok.setAttribute('fill', 'url(#pottyos)');
+                                svgDoc.documentElement.appendChild(pottyok);
+                            }
                         }
                     });
                 })
                 .catch(error => {
-                    console.error('Error fetching colors from Google Sheets:', error);
+                    console.error('Error fetching data from Google Sheets:', error);
                 });
         });
 
@@ -59,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
 async function fetchColorsFromGoogleSheets() {
     const apiKey = 'AIzaSyBSw4kP1Tn0rhZV75FMOlFXtmVzAf599Oo';
     const spreadsheetId = '1dMJUKE9xkSEu_4b20bB68fmXpZBLhFG3TsDbKtMiprw';
-    const range = 'data!B1:B9';
+    const range = 'data!B1:C9';
 
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
 
@@ -70,7 +79,12 @@ async function fetchColorsFromGoogleSheets() {
 
     const data = await response.json();
     if (data && data.values) {
-        return data.values.map(row => row[0]);
+        return data.values.map(row => {
+            return {
+                szin: row[0],
+                pottyos: row[1].toLowerCase() === 'true'
+            };
+        });
     } else {
         throw new Error('No data found in the specified range.');
     }

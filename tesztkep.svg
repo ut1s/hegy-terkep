@@ -13,6 +13,11 @@
 	.st7{fill:#F15A24;}
 	.st8{fill:#F7931E;}
 </style>
+<defs>
+	<pattern id="pottyos" patternUnits="userSpaceOnUse" width="50" height="50">
+		<circle cx="25" cy="25" r="10" fill="white" />
+	</pattern>
+</defs>
 <g id="negyszog9">
 	<rect x="143.5" y="63.5" class="st0" id="n9" width="391" height="274"/>
 	<path d="M534,64v273H144V64H534 M535,63H143v275h392V63L535,63z"/>
