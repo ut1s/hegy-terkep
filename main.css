@@ -22,7 +22,11 @@
 .gombok {
     display: flex;
     justify-content: space-evenly;
-    padding-bottom: 1%;
+
+    @media only screen and (max-width: 500px) {
+        flex-direction: column;
+        padding-bottom: 3%;
+    }
 }
 
 button {
@@ -35,6 +39,7 @@ button {
     border-radius: 0.4em;
     box-shadow: 0.1em 0.1em;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 button:hover {
@@ -49,6 +54,11 @@ button:active {
 
 .wrapper {
     display: flex;
+
+    @media only screen and (max-width: 500px) {
+        justify-content: center;
+    }
+
     gap: 10px;
     font-family: monospace;
 }
