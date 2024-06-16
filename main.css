@@ -19,6 +19,12 @@
     justify-content: center;
 }
 
+#kep {
+    @media only screen and (min-width: 1000px) {
+        width: 70%;
+    }
+}
+
 .gombok {
     display: flex;
     justify-content: space-evenly;
