@@ -2,68 +2,78 @@ document.addEventListener("DOMContentLoaded", function() {
     var svgObj = document.getElementById('kep');
 
     svgObj.addEventListener('load', function() {
-        var svgDoc = svgObj.contentDocument;
-        var elms = [
-            svgDoc.getElementById('n1'),
-            svgDoc.getElementById('n2'),
-            svgDoc.getElementById('n3'),
-            svgDoc.getElementById('n4'),
-            svgDoc.getElementById('n5'),
-            svgDoc.getElementById('n6'),
-            svgDoc.getElementById('n7'),
-            svgDoc.getElementById('n8'),
-            svgDoc.getElementById('n9')
-        ];
+        ujraszinez(svgObj);
 
         document.getElementById('frissit').addEventListener('click', function() {
-            fetchColorsFromGoogleSheets()
-                .then(styles => {
-                    styles.forEach((style, index) => {
-                        if (elms[index]) {
-                            elms[index].style.fill = style.szin;
-                            if (style.pottyos) {
-                                var pottyok = svgDoc.createElementNS('http://www.w3.org/2000/svg', 'rect');
-                                pottyok.setAttribute('x', elms[index].getAttribute('x'));
-                                pottyok.setAttribute('y', elms[index].getAttribute('y'));
-                                pottyok.setAttribute('width', elms[index].getAttribute('width'));
-                                pottyok.setAttribute('height', elms[index].getAttribute('height'));
-                                pottyok.setAttribute('fill', 'url(#pottyos)');
-                                svgDoc.documentElement.appendChild(pottyok);
-                            }
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching data from Google Sheets:', error);
-                });
+            ujraszinez(svgObj);
         });
 
         document.getElementById('ment').addEventListener('click', function () {
-            var serializer = new XMLSerializer();
-            var svgString = serializer.serializeToString(svgDoc.documentElement);
-    
-            // Create blob
-            var blob = new Blob([svgString], { type: "image/svg+xml" });
-            var url = URL.createObjectURL(blob);
-    
-            // Geeting today
-            var today = new Date();
-            var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth() + 1).padStart(2, '0');
-    
-            // Saving to file
-            var a = document.createElement('a');
-            a.href = url;
-            a.download = 'tesztkep_' + mm + '-' + dd +'.svg';
-            document.body.appendChild(a);
-            a.click();
-    
-            // Cleaning up
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            mentes();
         });
     });
 });
+
+async function ujraszinez(svgobjt) {
+    var svgDoc = svgobjt.contentDocument;
+    var elms = [
+        svgDoc.getElementById('n1'),
+        svgDoc.getElementById('n2'),
+        svgDoc.getElementById('n3'),
+        svgDoc.getElementById('n4'),
+        svgDoc.getElementById('n5'),
+        svgDoc.getElementById('n6'),
+        svgDoc.getElementById('n7'),
+        svgDoc.getElementById('n8'),
+        svgDoc.getElementById('n9')
+    ];
+
+    fetchColorsFromGoogleSheets()
+    .then(styles => {
+        styles.forEach((style, index) => {
+            if (elms[index]) {
+                elms[index].style.fill = style.szin;
+                if (style.pottyos) {
+                    var pottyok = svgDoc.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                    pottyok.setAttribute('x', elms[index].getAttribute('x'));
+                    pottyok.setAttribute('y', elms[index].getAttribute('y'));
+                    pottyok.setAttribute('width', elms[index].getAttribute('width'));
+                    pottyok.setAttribute('height', elms[index].getAttribute('height'));
+                    pottyok.setAttribute('fill', 'url(#pottyos)');
+                    svgDoc.documentElement.appendChild(pottyok);
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching data from Google Sheets:', error);
+    });
+}
+
+function mentes() {
+    var serializer = new XMLSerializer();
+    var svgString = serializer.serializeToString(svgDoc.documentElement);
+
+    // Create blob
+    var blob = new Blob([svgString], { type: "image/svg+xml" });
+    var url = URL.createObjectURL(blob);
+
+    // Geeting today
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+
+    // Saving to file
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'tesztkep_' + mm + '-' + dd +'.svg';
+    document.body.appendChild(a);
+    a.click();
+
+    // Cleaning up
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
 
 async function fetchColorsFromGoogleSheets() {
     const apiKey = 'AIzaSyBSw4kP1Tn0rhZV75FMOlFXtmVzAf599Oo';
