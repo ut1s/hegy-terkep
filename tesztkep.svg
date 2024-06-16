@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Réteg_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
+	 viewBox="0 0 1268 917" style="enable-background:new 0 0 1268 917;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#FFFF00;}
 	.st1{fill:#00FF00;}
@@ -19,39 +19,39 @@
 	</pattern>
 </defs>
 <g id="negyszog9">
-	<rect x="143.5" y="63.5" class="st0" id="n9" width="391" height="274"/>
-	<path d="M534,64v273H144V64H534 M535,63H143v275h392V63L535,63z"/>
+	<rect x="0.5" y="0.5" class="st0" id="n9" width="391" height="274"/>
+	<path d="M391,1v273H1V1H391 M392,0H0v275h392V0L392,0z"/>
 </g>
 <g id="negyszog8">
-	<rect x="581.5" y="63.5" class="st1" id="n8" width="391" height="274"/>
-	<path d="M972,64v273H582V64H972 M973,63H581v275h392V63L973,63z"/>
+	<rect x="438.5" y="0.5" class="st1" id="n8" width="391" height="274"/>
+	<path d="M829,1v273H439V1H829 M830,0H438v275h392V0L830,0z"/>
 </g>
 <g id="negyszog7">
-	<rect x="1019.5" y="63.5" class="st2" id="n7" width="391" height="274"/>
-	<path d="M1410,64v273h-390V64H1410 M1411,63h-392v275h392V63L1411,63z"/>
+	<rect x="876.5" y="0.5" class="st2" id="n7" width="391" height="274"/>
+	<path d="M1267,1v273H877V1H1267 M1268,0H876v275h392V0L1268,0z"/>
 </g>
 <g id="negyszog6">
-	<rect x="143.5" y="384.5" class="st3" id="n6" width="391" height="274"/>
-	<path d="M534,385v273H144V385H534 M535,384H143v275h392V384L535,384z"/>
+	<rect x="0.5" y="321.5" class="st3" id="n6" width="391" height="274"/>
+	<path d="M391,322v273H1V322H391 M392,321H0v275h392V321L392,321z"/>
 </g>
 <g id="negyszog5">
-	<rect x="581.5" y="384.5" class="st4" id="n5" width="391" height="274"/>
-	<path d="M972,385v273H582V385H972 M973,384H581v275h392V384L973,384z"/>
+	<rect x="438.5" y="321.5" class="st4" id="n5" width="391" height="274"/>
+	<path d="M829,322v273H439V322H829 M830,321H438v275h392V321L830,321z"/>
 </g>
 <g id="negyszog4">
-	<rect x="1019.5" y="384.5" class="st5" id="n4" width="391" height="274"/>
-	<path d="M1410,385v273h-390V385H1410 M1411,384h-392v275h392V384L1411,384z"/>
+	<rect x="876.5" y="321.5" class="st5" id="n4" width="391" height="274"/>
+	<path d="M1267,322v273H877V322H1267 M1268,321H876v275h392V321L1268,321z"/>
 </g>
 <g id="negyszog3">
-	<rect x="143.5" y="705.5" class="st6" id="n3" width="391" height="274"/>
-	<path d="M534,706v273H144V706H534 M535,705H143v275h392V705L535,705z"/>
+	<rect x="0.5" y="642.5" class="st6" id="n3" width="391" height="274"/>
+	<path d="M391,643v273H1V643H391 M392,642H0v275h392V642L392,642z"/>
 </g>
 <g id="negyszog2">
-	<rect x="581.5" y="705.5" class="st7" id="n2" width="391" height="274"/>
-	<path d="M972,706v273H582V706H972 M973,705H581v275h392V705L973,705z"/>
+	<rect x="438.5" y="642.5" class="st7" id="n2" width="391" height="274"/>
+	<path d="M829,643v273H439V643H829 M830,642H438v275h392V642L830,642z"/>
 </g>
 <g id="negyszog1">
-	<rect x="1019.5" y="705.5" class="st8" id="n1" width="391" height="274"/>
-	<path d="M1410,706v273h-390V706H1410 M1411,705h-392v275h392V705L1411,705z"/>
+	<rect x="876.5" y="642.5" class="st8" id="n1" width="391" height="274"/>
+	<path d="M1267,643v273H877V643H1267 M1268,642H876v275h392V642L1268,642z"/>
 </g>
 </svg>
