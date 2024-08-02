@@ -25,7 +25,14 @@ document.addEventListener("DOMContentLoaded", function() {
             svgDoc.getElementById('n6'),
             svgDoc.getElementById('n7'),
             svgDoc.getElementById('n8'),
-            svgDoc.getElementById('n9')
+            svgDoc.getElementById('n9'),
+            svgDoc.getElementById('n10'),
+            svgDoc.getElementById('n11'),
+            svgDoc.getElementById('n12'),
+            svgDoc.getElementById('n13'),
+            svgDoc.getElementById('n14'),
+            svgDoc.getElementById('n15'),
+            svgDoc.getElementById('n16')
         ];
     
         fetchColorsFromGoogleSheets()
@@ -34,13 +41,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (elms[index]) {
                     elms[index].style.fill = style.szin;
                     if (style.pottyos) {
-                        var pottyok = svgDoc.createElementNS('http://www.w3.org/2000/svg', 'rect');
-                        pottyok.setAttribute('x', elms[index].getAttribute('x'));
-                        pottyok.setAttribute('y', elms[index].getAttribute('y'));
-                        pottyok.setAttribute('width', elms[index].getAttribute('width'));
-                        pottyok.setAttribute('height', elms[index].getAttribute('height'));
-                        pottyok.setAttribute('fill', 'url(#pottyos)');
-                        svgDoc.documentElement.appendChild(pottyok);
+                        var vclip = svgDoc.getElementById("pn" + index);
+                        vclip.setAttribute('style', 'visibility: visible');
                     }
                 }
             });
@@ -79,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
     async function fetchColorsFromGoogleSheets() {
         const apiKey = 'AIzaSyBSw4kP1Tn0rhZV75FMOlFXtmVzAf599Oo';
         const spreadsheetId = '1dMJUKE9xkSEu_4b20bB68fmXpZBLhFG3TsDbKtMiprw';
-        const range = 'data!B1:C9';
+        const range = 'data!B1:C16';
     
         const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
     
